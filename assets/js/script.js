@@ -10,7 +10,7 @@ var pos = ship.getBoundingClientRect().left;
 
 document.addEventListener('keydown', move);
 
-function move() {
+function move(event) {
 console.log(ship.getBoundingClientRect().left);
 	
 /*    Touche droite*/
