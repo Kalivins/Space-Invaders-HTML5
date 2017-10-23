@@ -1,0 +1,15 @@
+#vContainer {
+    height: 100px;
+    width: auto;
+    position: relative;
+    background-color: aquamarine;
+}
+
+#ship {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 50px);
+    background-color: red;
+}
