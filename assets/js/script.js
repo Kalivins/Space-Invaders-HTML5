@@ -12,15 +12,20 @@ document.addEventListener('keydown', move);
 
 function move() {
 console.log(ship.getBoundingClientRect().left);
+	
 /*    Touche droite*/
-    if (event.keyCode == 39) {
+    if ((event.keyCode == 39) && pos < (document.body.clientWidth - ship.getBoundingClientRect().width)) {
         pos +=10;
         ship.style.left = pos + "px";
     }
+	
 /*Touche gauche*/
-    if (event.keyCode == 37){
+    if ((event.keyCode == 37) && pos > 0){
          pos -=10;
         ship.style.left = pos + "px";
     }
 }
+
+
+
 
