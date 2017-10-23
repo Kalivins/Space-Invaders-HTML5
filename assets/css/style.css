@@ -2,7 +2,7 @@
 	height: 700px;
     width: auto;
     position: relative;
-    background-color: green;
+    background-color: black;
 }
 
 #alienContainer {
@@ -11,11 +11,8 @@
 	top: 100px;
     left: calc(50% - 500px);
     position: absolute;
-    background-color: black;
+    background-color: white;
 }
-
-
-
 
 #shipContainer {
     height: 100px;
