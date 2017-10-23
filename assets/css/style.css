@@ -1,4 +1,23 @@
-#vContainer {
+#gameContainer {
+	height: 700px;
+    width: auto;
+    position: relative;
+    background-color: green;
+}
+
+#alienContainer {
+	height: 250px;
+    width: 1000px;
+	top: 100px;
+    left: calc(50% - 500px);
+    position: absolute;
+    background-color: black;
+}
+
+
+
+
+#shipContainer {
     height: 100px;
     width: auto;
     position: relative;
