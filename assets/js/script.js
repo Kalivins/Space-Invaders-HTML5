@@ -64,4 +64,4 @@ this.left = left;
 this.top = top;
     
 }
-var Alien1 = new Sprite("../img/alien_1.svg", 100, 100);
+var Alien1 = new Sprite("assets/img/alien_1.svg", 100, 100);
