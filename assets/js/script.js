@@ -5,14 +5,14 @@ var missile = document.querySelector('#missile'); // VARIABLE MISSILE
 var ship = document.querySelector('#ship');
 var droite = 10;
 var gauche = -10;
-var pos = ship.getBoundingClientRect().left;
-var posX = ship.getBoundingClientRect().left; // X VAISSEAU
+var pos = ship.getBoundingClientRect().left; // X VAISSEAU
 var missX = missile.getBoundingClientRect().left; // X MISSILE
 var posY = ship.getBoundingClientRect().top;// Y VAISSEAU
 var missY = missile.getBoundingClientRect().top;// Y MISSILE
 
 document.addEventListener('keydown', move);
 createAlien();
+moveAlien();
 console.log(missile);
 function move(event) {
     console.log(ship.getBoundingClientRect().left);
@@ -99,12 +99,5 @@ function moveAlien() {
 
 }
 
-var ship = document.querySelector('#ship');
-var shipBase = window.getComputedStyle(ship, null).getPropertyValue('left');
-var droite = 10;
-var gauche = -10;
-var pos = ship.getBoundingClientRect().left;
 
-document.addEventListener('keydown', move);
-createAlien();
-moveAlien();
+
