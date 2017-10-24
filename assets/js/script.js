@@ -61,15 +61,20 @@ function move(event) {
 /*Génération des aliens*/
 function createAlien() {
     for (i = 1; i < 56; i++) {
-        
 
         var gameContainer = document.querySelector("#gameContainer");
-        
+
         var alien = document.createElement("img");
         alien.src = "assets/img/alien_1.svg";
-        alien.className = "alien"+i;
+        alien.className = "alienX alien" + i;
         gameContainer.appendChild(alien);
     }
+}
+
+function moveAlien() {
+    var tabAlien = document.querySelectorAll(".alienX");
+    console.log(alien);
+    
 }
 
 var ship = document.querySelector('#ship');
@@ -80,4 +85,4 @@ var pos = ship.getBoundingClientRect().left;
 
 document.addEventListener('keydown', move);
 createAlien();
-
+moveAlien();
