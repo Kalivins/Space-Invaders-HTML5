@@ -2,14 +2,6 @@
 	console.log(event.keyCode);;
 }*/
 
-var ship = document.querySelector('#ship');
-var shipBase = window.getComputedStyle(ship, null).getPropertyValue('left');
-var droite = 10;
-var gauche = -10;
-var pos = ship.getBoundingClientRect().left;
-
-document.addEventListener('keydown', move);
-
 function move(event) {
     console.log(ship.getBoundingClientRect().left);
 
@@ -65,15 +57,19 @@ function Sprite(file, left, top) {
     this.top = top;
 
 }
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
 
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
-var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
+/*Génération des aliens*/
+function createAlien() {
+    for (i = 0; i < 55; i++) {
+        var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
+    }
+}
+
+var ship = document.querySelector('#ship');
+var shipBase = window.getComputedStyle(ship, null).getPropertyValue('left');
+var droite = 10;
+var gauche = -10;
+var pos = ship.getBoundingClientRect().left;
+
+document.addEventListener('keydown', move);
+createAlien();

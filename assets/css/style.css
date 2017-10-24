@@ -6,8 +6,8 @@
 }
 
 #alienContainer {
-	height: 40%;
-    width:  80%;
+	height: auto;
+    width:  50%;
     margin-left: 10%;
     margin-right: 10%;
     background-color: white;
@@ -31,4 +31,5 @@
 .alienX{
     width: 2.7em;
     height: 2.7em;
+    margin: 0.5em;
 }
