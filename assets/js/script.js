@@ -65,7 +65,8 @@ function createAlien() {
         var gameContainer = document.querySelector("#gameContainer");
 
         var alien = document.createElement("img");
-        alien.src = "assets/img/alien_1.svg";
+
+        alien.src = "assets/img/sprites/alien_1.svg";
         alien.className = "alienX alien" + i;
         gameContainer.appendChild(alien);
     }
@@ -73,8 +74,8 @@ function createAlien() {
 
 function moveAlien() {
     var tabAlien = document.querySelectorAll(".alienX");
-    console.log(alien);
-    
+    console.log(tabAlien);
+
 }
 
 var ship = document.querySelector('#ship');

@@ -8,15 +8,35 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
+         
+         
+         <!--##############Le jeu##############-->
+         <div class="HUD">
+            <div class="score">
+             <h2>Score : 100</h2><!-- Mettre le score -->
+             </div>
+             <div class="titre">
+                 <h1>Space Invaders</h1>
+             </div>
+             <div class="lifebar">
+                 <div><img class="life" src="assets/img/sprites/rocket.svg" alt="une image vectorielle de vaisseau"></div>
+                 <div><h2>X 4</h2></div> <!--Nombre de vies -->
+             </div>
+         </div>
   		<div id="gameContainer">
   		
   		</div>
-   
 		  <div id="shipContainer">
-				<img src="assets/img/rocket.svg" alt="une image vectorielle de vaisseau" id="ship">
+				<img src="assets/img/sprites/rocket.svg" alt="une image vectorielle de vaisseau" id="ship">
 		  </div>
     	
-
+<footer>
+    <div class="credits">
+    <h2>Credits : </h2>
+    <p>0</p>
+    <!-- Rajouter le nombre d'essai restants -->
+    </div>
+</footer>
     	
 
     <script src="assets/js/script.js"></script>
