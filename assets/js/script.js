@@ -18,12 +18,12 @@ function move(event) {
     }
 }
 //On défini notre fonction objet pour les aliens 
-function Sprite(file, left, top) {
+/*function Sprite(file, left, top, alienClass) {
 
     var alienContainer = document.querySelector(".AlienDiv");
-    this._node = document.createElement("img");
+    this._node = document.createElement("div");
     this._node.src = file;
-    this._node.className = "alienX";
+    this._node.className = alienClass;
     alienContainer.appendChild(this._node);
 
     Object.defineProperty(this, "left", {
@@ -56,12 +56,19 @@ function Sprite(file, left, top) {
     this.left = left;
     this.top = top;
 
-}
+}*/
 
 /*Génération des aliens*/
 function createAlien() {
-    for (i = 0; i < 55; i++) {
-        var Alien = new Sprite("assets/img/alien_1.svg", 100, 100);
+    for (i = 1; i < 56; i++) {
+        
+
+        var gameContainer = document.querySelector("#gameContainer");
+        
+        var alien = document.createElement("img");
+        alien.src = "assets/img/alien_1.svg";
+        alien.className = "alien"+i;
+        gameContainer.appendChild(alien);
     }
 }
 
@@ -73,3 +80,4 @@ var pos = ship.getBoundingClientRect().left;
 
 document.addEventListener('keydown', move);
 createAlien();
+
