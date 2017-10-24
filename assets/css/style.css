@@ -6,11 +6,10 @@
 }
 
 #alienContainer {
-	height: 250px;
-    width: 1000px;
-	top: 100px;
-    left: calc(50% - 500px);
-    position: absolute;
+	height: 40%;
+    width:  80%;
+    margin-left: 10%;
+    margin-right: 10%;
     background-color: white;
 }
 
@@ -27,4 +26,9 @@
     position: absolute;
     top: 0px;
     left: calc(50% - 50px);
+}
+
+.alienX{
+    width: 2.7em;
+    height: 2.7em;
 }
