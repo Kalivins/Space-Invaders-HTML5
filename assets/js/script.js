@@ -66,8 +66,8 @@ function createAlien() {
         var gameContainer = document.querySelector("#gameContainer");
         
         var alien = document.createElement("img");
-        alien.src = "assets/img/alien_1.svg";
-        alien.className = "alien"+i;
+        alien.src = "assets/img/sprites/alien_1.svg";
+        alien.className = "alienX alien"+i;
         gameContainer.appendChild(alien);
     }
 }
