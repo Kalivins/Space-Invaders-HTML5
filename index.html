@@ -8,9 +8,18 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-         
-         
+         <!--##############Play Game##############-->
+         <div class="play">
+            <h2>Space Invaders !</h2>
+             <p>Battez-vous contre une horde d'aliens ! Detruisez les tous !</p>
+             <button type="button" onclick="moveAlien()">Jouer</button>
+         </div>
          <!--##############Le jeu##############-->
+         <audio class="laser" src="assets/sound/laser.mp3"></audio>
+         <audio class="boum" src="assets/sound/boum.mp3"></audio>
+         <button class="bouton_mobile" onclick="screen.orientation.lock('landscape')">
+          Passer en paysage
+        </button>
          <div class="HUD">
             <div class="score">
              <h2>Score : <span id="points">0</span></h2><!-- Mettre le score -->
@@ -32,7 +41,6 @@
 		  		<div class="boutondroit"></div>
 		  		<div class="fire"></div>
 		  </div>
-    	
 <footer>
     <div class="credits">
     <h2>Credits : </h2>
@@ -40,8 +48,18 @@
     <!-- Rajouter le nombre d'essai restants -->
     </div>
 </footer>
-    	
-
+    	<!--##############GameOver##############-->
+    	<div class="gameover">
+    	    <h2>Game Over</h2>
+    	    <p>Ton score: <span id="points1">0</span></p>
+    	    <button type="button" onclick="retry()">Retry ?</button>
+    	</div>
+        <!--##############WIN##############-->
+        <div class="win">
+            <h2>You Win !</h2>
+            <p>Ton score: <span id="points2">0</span></p>
+            <button type="button" onclick="retry()">Retry ?</button>
+        </div>
     <script src="assets/js/script.js"></script>
   </body>
 </html>
