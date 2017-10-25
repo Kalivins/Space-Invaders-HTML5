@@ -1,0 +1,196 @@
+/*#########Résolution des écrans ordinateur#########*/
+@media screen and (min-width: 1200px) and (max-width: 1500px) and (max-height: 768px) {
+
+    #gameContainer {
+
+        height: 538px;
+
+        width: 36%;
+
+    }
+
+    .alienX {
+
+        width: 2.0em;
+
+        margin: 0.3em;
+
+    }
+    #ship {
+        height: 80px;
+        width: 80px;
+    }
+    
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    #gameContainer {
+
+        height: 468px;
+
+        width: 36%;
+
+    }
+
+    .alienX {
+
+        width: 1.6em;
+
+        margin: 0.2em;
+
+    }
+    #ship {
+        height: 70px;
+        width: 70px;
+    }
+    .HUD {
+        font-size: 0.8em;
+    }
+    .missile {
+        height: 35px;
+        width: 35px;
+    }
+}
+/*####### Résolution IpadPro landscape #######*/
+@media (max-width: 1366px) and (max-height: 1024px) and (orientation:landscape) {
+    body {
+        background-attachment: fixed;
+    }
+    #gameContainer {
+        height: 420px;
+    }
+    buttons_tact {
+        display: block;
+    }
+}
+/*####### Résolution Ipad landscape #######*/
+@media (max-width: 1024px) and (max-height: 768px) and (orientation: landscape) {
+    body {
+        background-attachment: fixed;
+    }
+     #shipContainer {
+        height: 60px;
+    }
+    #gameContainer {
+        height: 570px;
+    }
+}
+/*####### Résolution Iphone6+ landscape #######*/
+@media (max-width: 736px) and (max-height:414px) and (orientation: landscape) {
+    #gameContainer {
+        
+        height: 280px;
+        
+    }
+     #shipContainer {
+        height: 40px;
+    }
+    .alienX {
+
+        width: 1.4em;
+        height: 0.6em;
+        margin: 0.05em;
+
+    }
+    #ship {
+        height: 45px;
+        width: 45px;
+    }
+    .HUD {
+        height: 40px;
+        font-size: 0.5em;
+    }
+    .missile {
+        height: 25px;
+        width: 25px;
+    }
+    .lifebar {
+    padding-left: 30px;
+    }
+    .life {
+
+    height: 30px;
+}
+    .credits {
+        margin-right: 20px;
+    }
+    .credits h2 {
+    font-size: 17px;
+}
+
+.credits p {
+
+    font-size: 17px;
+
+}
+}
+/*####### Résolution Iphone6 landscape #######*/
+@media (max-width: 667px) and (max-height:375px) and (orientation: landscape) {
+    #gameContainer {
+        
+        height: 240px;
+        
+    }
+     #shipContainer {
+        height: 40px;
+    }
+    .alienX {
+        height: 1em;
+        width: 1.1em;
+        margin: 0.09em;
+    }
+    #ship {
+        height: 40px;
+        width: 40px;
+    }
+}
+/*####### Résolution Iphone5 landscape #######*/
+@media (max-width: 568px) and (max-height: 320px) and (orientation: landscape){
+    
+    #gameContainer {
+        
+        height: 190px;
+        
+    }
+    #shipContainer {
+        height: 40px;
+    }
+    .alienX {
+
+        height: 0.8em;
+        margin: 0.03em;
+    }
+    .credits {
+        margin-right: 10px;
+    }
+    .credits h2 {
+    font-size: 14px;
+}
+    .missile {
+        height: 15px;
+        width: 15px;
+    }
+}
+/*-------------------------------------*/
+@media (max-width: 732px) and (max-height: 412px) and (orientation: landscape) {
+     .alienX {
+
+        height: 0.8em;
+        margin: 0.03em;
+    }
+}
+/*####### Résolution Galaxy S5 landscape #######*/
+@media (max-width: 640px) and (max-height: 360px) and (orientation: landscape) {
+     .alienX {
+
+        height: 0.8em;
+        width: 1.2em;
+        margin: 0.02em;
+    }
+    #gameContainer {
+        
+        height: 220px;
+        
+    }
+}

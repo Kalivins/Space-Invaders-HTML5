@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Space Invaders</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" media="all and (orientation:landscape)" href="assets/css/mobile.css">
   </head>
   <body>
          
          
          <!--##############Le jeu##############-->
+         <button class="bouton_mobile" onclick="screen.orientation.lock('landscape')">
+          Passer en paysage
+        </button>
          <div class="HUD">
             <div class="score">
              <h2>Score : 100</h2><!-- Mettre le score -->
