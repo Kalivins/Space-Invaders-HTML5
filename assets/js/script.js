@@ -7,6 +7,10 @@
 var ship = document.querySelector('#ship');
 var droite = 10;
 var gauche = -10;
+
+var point = 0;
+
+
 var pos = ship.getBoundingClientRect().left; // X VAISSEAU
 var posY = ship.getBoundingClientRect().top; // Y VAISSEAU
 
@@ -14,9 +18,154 @@ var posY = ship.getBoundingClientRect().top; // Y VAISSEAU
 
 document.addEventListener('keydown', move);
 document.addEventListener('keydown', tir);
+
 createAlien();
 moveAlien();
 
+
+/*Génération des aliens*/
+function createAlien() {
+
+    /*Création des aliens*/
+    for (i = 1; i < 56; i++) {
+
+        var gameContainer = document.querySelector("#gameContainer");
+
+        var alien = document.createElement("img");
+
+        alien.src = "assets/img/sprites/alien_1.svg";
+        alien.className = "alienX alien" + i;
+		alien.setAttribute('id' , 'alien' + i)
+        gameContainer.appendChild(alien);
+    }
+
+    /*Positionnement des aliens*/
+    var tabAlien = document.querySelectorAll(".alienX");
+
+    var topPos = 5;
+    var leftPos = 0;
+
+    for (i = 0; i < 55; i++) {
+
+        var Alien = tabAlien[i];
+
+
+        switch (true) {
+
+            case (i < 11):
+                Alien.style.left = leftPos + "em";
+                leftPos += 5;
+                break;
+            case (i == 11):
+                leftPos -= 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+            case (i > 11 && i < 22):
+                leftPos -= 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+            case (i == 22):
+                topPos += 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+            case (i > 22 && i < 33):
+                leftPos += 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+            case (i == 33):
+                topPos += 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+            case (i > 33 && i < 44):
+                leftPos -= 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+            case (i == 44):
+                topPos += 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+            case (i > 44 && i < 55):
+                leftPos += 5;
+                Alien.style.top = topPos + "em";
+                Alien.style.left = leftPos + "em";
+                break;
+        }
+
+    }
+
+}
+
+function moveAlien() {
+    /*Récuperation de tout les aliens*/
+    var tabAlien = document.querySelectorAll(".alienX");
+    var lastAlien = document.querySelector(".alienX:last-child").getBoundingClientRect().left;
+    var widthAlien = document.querySelector(".alienX:last-child").getBoundingClientRect().width;
+    var widthBody = document.body.clientWidth - widthAlien;
+
+    /*Gestion du deplacement des aliens*/
+    var topPos = 0.3;
+    var rightPos = 0.2;
+    var leftPos = 1.2;
+    var vitesse = 200;
+
+    /*On lance l'animation*/
+    var intervalRight = setInterval(frameRigth, vitesse);
+
+    /*animation à droite*/
+    function frameRigth() {
+
+        var lastAlien = document.querySelector(".alienX:last-child").getBoundingClientRect().left;
+
+        for (i = 0; i < tabAlien.length; i++) {
+            var alienBase = tabAlien[i].getBoundingClientRect().left;
+            tabAlien[i].style.left = "calc(" + alienBase + "px + " + rightPos + "em)";
+        }
+        if (lastAlien >= widthBody) {
+            clearInterval(intervalRight);
+            frameBottom();
+            intervalLeft = setInterval(frameLeft, vitesse);
+        }
+    }
+    
+    /*animation à gauche*/
+    function frameLeft() {
+        var lastAlien = document.querySelector(".alienX:last-child").getBoundingClientRect().left;
+
+        var firstAlien = document.querySelector(".alienX:first-child").getBoundingClientRect().left;
+
+        for (i = 0; i < tabAlien.length; i++) {
+            var alienBase = tabAlien[i].getBoundingClientRect().left;
+            tabAlien[i].style.left = "calc(" + alienBase + "px - " + leftPos + "em)";
+
+        }
+        if (firstAlien <=0) {
+            clearInterval(intervalLeft);
+            frameBottom();
+            intervalRight = setInterval(frameRigth, vitesse);
+        }
+    }
+    
+    /*Animation en bas et augmentation de la vitesse*/
+    function frameBottom(){
+        for (i = 0; i < tabAlien.length; i++) {
+            var alienTop = tabAlien[i].getBoundingClientRect().top;
+            tabAlien[i].style.top = "calc(" + alienTop + "px + " + topPos + "em)";
+
+        }
+        
+        vitesse -= 20;
+        console.log(vitesse);
+        
+    }
+
+}
 
 
 function createMissile() {
@@ -29,6 +178,9 @@ function createMissile() {
     elMissile.width = "40";
     elMissile.height = "40";
     gameContainer.appendChild(elMissile);
+    var laser = document.createElement('audio');
+    laser.src = '../sound/laser.mp3';
+    laser.play();
 
 }
 
@@ -55,7 +207,8 @@ function move(event) {
     }
 
 function tir(event) {
-    
+	
+
        if (event.keyCode == 32 || event.keyCode == 90 || event.keyCode == 38) {
         createMissile();
         var missile = document.querySelector('.missile');
@@ -69,212 +222,73 @@ function tir(event) {
         missile.style.top = missY + "px";
         
         var LOL = posY;
+		   
         var id = setInterval(frame, 1);
+		   var missLeft = missile.getBoundingClientRect().left;
         function frame() {
             if (LOL == 0) {
                 clearInterval(id);
-                gameContainer.removeChild(missile);
+               
                 document.addEventListener("keydown", tir);
-            } else {
+            }
+			else {
                 LOL--;
+				/*console.log(LOL);*/
+				
+				
                 document.removeEventListener("keydown", tir);
                 missile.style.top = LOL + 'px';
+				var aliens = document.querySelectorAll('.alienX');
+				
+				var missPos =  missile.getBoundingClientRect();
+				
+				for(var i = 0; i < aliens.length; i++){
+					
+					
+					var aliensPos = aliens[i].getBoundingClientRect();
+			
+					
+					if(missPos.top < aliensPos.bottom){
+						if((parseInt(missPos.left) > parseInt(aliensPos.left)) && (parseInt(missPos.right) < parseInt(aliensPos.right))){
+							
+							var alienTouch = aliens[i].id;
+							console.log(aliens[i].id);
+							var currentAlien = document.getElementById(aliens[i].id);
+							gameContainer.removeChild(missile);
+							gameContainer.removeChild(currentAlien);
+							score();
+							break;
+			
+							
+						
+						}else if(LOL == 0){
+							gameContainer.removeChild(missile);
+						}
+					}	
+					
+				}
             }
 
-        }
+        }				   
 
     }
 }
-/*
 
-	window.setInterval(function missile(){
-
-		
-
-			for (i = 0 ; i < 10 ; i++){
-
-				missY -= 5; 
-
-				missile.style.top = missY + "px";
-
-				console.log(i);
-
-				console.log(missY);
-
-				}
-
-								}, 300);
-
-		
-
-		
-
+function score(){
 	
+	point += 10;
+	console.log(point);
+	document.querySelector('#points').innerHTML = point;
+	
+	
+}
 
-		for (i = 0 ; i < 10 ; i++){
 
-				
 
-				window.setInterval (function(){
 
-					
 
-			 		missY -= 5;
 
-					missile.style.top = missY + "px";
 
-					var vitesse = getComputedStyle(missile);
-
-					console.log(missY);
-
-					console.log(i);
-
-					
-
-					if (vitesse.top == -100){
-
-						window.clearInterval;
-
-					}
-
-					
-
-					
-
-				 		
-
-		}, 300)
-
-	}
 
 		
 
-			*/
-
-
-
-
-
-
-
-
-
-//On défini notre fonction objet pour les aliens 
-
-/*function Sprite(file, left, top, alienClass) {
-
-
-
-    var alienContainer = document.querySelector(".AlienDiv");
-
-    this._node = document.createElement("div");
-
-    this._node.src = file;
-
-    this._node.className = alienClass;
-
-    alienContainer.appendChild(this._node);
-
-
-
-    Object.defineProperty(this, "left", {
-
-        get: function () {
-
-            return this._left;
-
-        },
-
-        set: function (value) {
-
-            this._left = value;
-
-            this._node.style.left = value + "px";
-
-        }
-
-    });
-
-    Object.defineProperty(this, "top", {
-
-        get: function () {
-
-            return this._top;
-
-        },
-
-        set: function (value) {
-
-            this._top = value;
-
-            this._node.style.top = value + "px";
-
-        }
-
-    });
-
-    Object.defineProperty(this, "display", {
-
-        get: function () {
-
-            return this._node.style.display;
-
-        },
-
-        set: function (value) {
-
-            return this._node.style.display = value;
-
-        }
-
-    });
-
-
-
-    this.left = left;
-
-    this.top = top;
-
-
-
-}*/
-
-
-
-/*Génération des aliens*/
-
-function createAlien() {
-
-    for (i = 1; i < 56; i++) {
-
-
-
-        var gameContainer = document.querySelector("#gameContainer");
-
-
-
-        var alien = document.createElement("img");
-
-
-
-        alien.src = "assets/img/sprites/alien_1.svg";
-
-        alien.className = "alienX alien" + i;
-
-        gameContainer.appendChild(alien);
-
-    }
-
-}
-
-
-
-function moveAlien() {
-
-    var tabAlien = document.querySelectorAll(".alienX");
-
-    console.log(tabAlien);
-
-
-
-}
